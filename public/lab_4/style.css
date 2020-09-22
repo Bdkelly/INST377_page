@@ -140,3 +140,19 @@ html, body {
     margin-top: 10px;
     background: rgba(0,255,0,0.5);
   }
+
+  .container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .container * {
+    box-sizing: border-box;
+  }
+
+  
+.flex-outer,.flex-inner {
+  list-style-type: none;
+  padding: 0;
+}
