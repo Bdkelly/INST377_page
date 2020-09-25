@@ -3,29 +3,34 @@
     <title>Ben's Lab</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<div>
-    <header>Hello There</header>
-</div>
 <div class="container">
-    <form>
-        <ul>
-            <li>
-                <label>Hello</label>
-                <input type="text" id="first-name" placeholder="Enter your first name here">
-            </li>
-            <li>
-                <label>Hello</label>
-                <input type="text" id="first-name" placeholder="Enter your first name here">
-            </li>
-            <li>
-                <label>Hello</label>
-                <input type="text" id="first-name" placeholder="Enter your first name here">
-            </li>
-            <li>
-                <label>Hello</label>
-                <textarea rows="6" type="text" id="first-name" placeholder="Enter your first name here"></textarea>
-            </li>
-        </ul>
-    </form>
+    <div class="wrapper">
+        <Header class="header">Benjamin Kelly - Lab 4</Header>
+        <form action="/lab_4/Bens_Form.html" method="post">
+            <ul class ="flex-outer">
+                <li>
+                    <label for="fname">First Name: </label>
+                    <input type="text" id="first_name" placeholder="Enter your first name here" maxlength="140" size="30">
+                </li>
+                <li>
+                    <label for="lname">Last Name: </label>
+                    <input type="text" id="last_name" placeholder="Enter your last name here" maxlength="140" size="30">
+                </li>
+                <li>
+                    <label for="email">Email Address: </label>
+                    <input type="email" id="email_input" placeholder="Enter your email here (ex. joe@gmail.com)" size="45">
+                </li>
+                <li>
+                    <label for="phone">Phone Number: </label>
+                    <input type="tel" id="phone_num" placeholder="Enter your phone number here (ex. 555-555-5555)" size="45">
+                </li> 
+                <li>
+                    <label>Message: </label>
+                    <textarea rows="5" cols="33" type="text" id="message" placeholder="Enter your message here"></textarea>
+                </li>
+            </ul>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </div>
 </html
