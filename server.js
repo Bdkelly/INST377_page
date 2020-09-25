@@ -20,4 +20,10 @@ app.route('/api')
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
+
+});
+
+app.get('/',(req,res) => {
+  console.log("Hello World");
+  res.send("Hello World");
 });
