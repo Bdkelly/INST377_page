@@ -1,0 +1,41 @@
+/*CSS*/
+body{
+    background-color: grey;
+  }
+  .container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      max-width: 640px;
+      min-height: 100%;
+  }
+  
+  .wrapper {
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+    }
+    
+    .content {
+      background: #fff;
+      border: 2px dotted rgb(221, 221, 221);
+      flex-grow: 2;
+      flex: 0 0 200px;
+      padding: 10px;
+      overflow-wrap: break-word;
+    }
+    
+    .header {
+      background: rgba(56, 149, 168,0.8);
+      color: #fff;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+      margin-bottom: 5px;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
