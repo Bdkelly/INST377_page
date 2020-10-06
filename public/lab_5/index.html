@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>This is the title</title>
+    <title>Ben's Lab</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" media="screen and (max-width: 600px)" href="newstyle.css">
 </head>
-<body>
-    <div class="header">
-        <h1>This is the Header</h1>
-        <img src= images\547px-Maryland_Terrapins_logo.svg.png width="100" height="100">
-    </div>
+<div class="container">
     <div class="wrapper">
-        <div>
-            <h2>The is the body</h2>
-        </div>
-        <div>
-            <h2>This is another body</h2>
-        </div>
+        <body>
+            <Header class="header">Benjamin Kelly - Lab 4</Header>
+            <form action="/api" method="post">
+            <ul class ="flex-outer">
+                <li>
+                    <label for="first_name">First Name: </label>
+                    <input type="text" id="first_name" placeholder="Enter your first name here" maxlength="140" size="30">
+                </li>
+                <li>
+                    <label for="last_name">Last Name: </label>
+                    <input type="text" id="last_name" placeholder="Enter your last name here" maxlength="140" size="30">
+                </li>
+                <li>
+                    <label for="email">Email Address: </label>
+                    <input type="email" id="email" placeholder="Enter your email here (ex. joe@gmail.com)" size="45">
+                </li>
+                <li>
+                    <label for="phone">Phone Number: </label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number here (ex. 555-555-5555)" size="45">
+                </li> 
+                <li>
+                    <label for="message">Message: </label>
+                    <textarea rows="5" cols="33" type="text" id="message" placeholder="Enter your message here"></textarea>
+                </li>
+                </ul>
+                <p>Ages</p>
+                <ul class ="flex-inner">
+                    <li>
+                        <input type="checkbox" id="eightteen_thirtyfive" name="eightteen_thirtyfive">
+                        <label for="eightteen_thirtyfive">18-35</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="thirtyfive_fifty" name="thirtyfive_fifty">
+                        <label for="thirtyfive_fifty">35-50</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="fifty_sixty" name="fifty_sixty">
+                        <label for="fifty_sixty">50-60</label>
+                    </li>
+                </ul>
+            <button type="submit">Submit</button>
+        </form>
+        </body>
     </div>
-</body>
+</div>
 </html>
-
