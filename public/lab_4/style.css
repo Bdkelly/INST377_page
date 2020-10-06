@@ -1,98 +1,149 @@
 /*CSS*/
+/*Elements*/
 body {
-  background: #eeeeee;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-right: auto;
-  line-height: 1.5;
+  font-family: 'Sofia';
   font-size: 20px;
-  color: rgb(15, 14, 14);
-}
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-form li + li {
-  margin-top: 1em;
+  background-color: lightcoral;
+  color: black;
+  padding: 50px ;
+  font-weight:10;
+  overflow:visible !important;
 }
 
-h1,
-h2,
-h3 {
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
+h1{
+    text-align: center;
 }
-
-.name {
-  text-overflow: ellipsis;
-  max-width: 200px;
-}
-
+/*Classes*/
 .container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  max-width: 640px;
-  min-height: 100%;
-}
+    background: Grey;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction:row;
+    justify-content: center;
+
+  }
 
 .wrapper {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-}
-
-.content {
-  background: #fff;
-  border: 2px dotted rgb(221, 221, 221);
-  flex-grow: 2;
-  flex: 0 0 200px;
-  padding: 10px;
-  overflow-wrap: break-word;
-}
-
-.header {
+    background: Grey;
+    color: white;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-flow:wrap;
+    justify-content:center;
+    align-content:space-between;
+  }
+  
+  .content {
+    background: #fff;
+    border: 2px dotted rgb(221, 221, 221);
+    flex-grow: 2;
+    flex: 0 0 200px;
+    padding: 10px;
+    overflow-wrap: break-word;
+  }
+  
+  .header {
+    background: rgba(56, 149, 168,0.8);
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 4px;
+  }
+ 
+ .top{
   background: rgba(56, 149, 168,0.8);
   color: #fff;
   display: flex;
-  flex-direction: row;
+  flex: 0 1 auto;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin: 0;
-  margin-bottom: 5px;
-  padding: 8px 16px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  padding: 15px;
   border-radius: 4px;
+ }
+
+ .top img{
+     justify-content: center;
+     border-style: round;
+     border-radius: 4px;
+     border: solid 1px black;
+ }
+ .bottom{
+ background: rgba(56, 149, 168,0.8);
+ width:min-content 280px;
+ color: #fff;
+ display: flex;
+ flex-direction: c;
+ flex-wrap: wrap;
+ justify-content: space-around;
+ align-items: center;
+ margin: 0;
+ margin-top: 15px;
+ margin-bottom: 15px;
+ margin-left: 15px;
+ padding: 15px;
+ border-radius: 4px;
+ }
+
+ .wrapper > .container > div{
+    margin-right: 15px;
+    flex: 0 1 auto;
 }
 
-.button {
-  background-color: #ffc477;
-  border: 2px solid #ca8611;
-  border-radius: 11px;
-  display: inline-block;
-  cursor: pointer;
-  font-family: Verdana;
-  font-size: 14px;
+/*Media Rules */
+@media only screen and (min-device-width : 280px) and (max-device-width : 480px){
+    .wrapper >
+     .container > 
+            div{justify-content: center;
+                flex: 1 0 auto;
+                margin-right: 15px;
+                margin-left: 15px;
+                justify-content: center;
+                vertical-align: middle;
+            }
+    .container{
+      justify-content: center;
+      flex-direction: column;
+    }
+    .bottom{
+      margin: 0;
+      margin-top: 0px;
+      margin-bottom: 15px;
+      margin-left: 0px;
+      padding: 0px;
+      border-radius: 0px;
+      }
+    }
+
+@media screen and (max-width: 960px){
+    .wrapper >.container > div{
+        justify-content: space-between;
+        flex: 1 0 auto;
+        margin-right: 0px;
+        flex-direction: row;
+        justify-content:center;
+    }
+    .container{
+      justify-content:center;
+    
+    }
 }
 
-.button:hover {
-  border: 1px solid rgb(49, 46, 216);
-  background-color: royalblue;
-}
-
-textarea {
-  display: block;
-  box-shadow: 5px 1px rgb(214, 210, 210);
-  letter-spacing: 1px;
-  padding: 5px;
-  border-radius: 5px;
-  width: 100%;
-}
-
-label {
-  display: block;
-  margin: 5px;
-}
+@media only screen and (min-width : 1000px){
+    .container{justify-content: space-between;
+    }
+  }
+  
