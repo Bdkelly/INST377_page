@@ -1,53 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Ben's Lab</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Benjamin Kelly's Lab 4</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <div class="container">
     <div class="wrapper">
         <body>
-            <Header class="header">Benjamin Kelly - Lab 4</Header>
+            <h1 id= class="header">Benjamin Kelly Lab 4</h1>
+            <button onclick = "colorChange()">Activate</button>
+            <script type = "text/javascript">
+                function colorChange(){
+                    let color = documnet.getElementById('colorInputText').value;
+                    document.body.style.backgroundColor = color;
+                }
+            </script>
             <form action="/api" method="post">
             <ul class ="flex-outer">
                 <li>
-                    <label for="first_name">First Name: </label>
-                    <input type="text" id="first_name" placeholder="Enter your first name here" maxlength="140" size="30">
+                    <label for="fname">First Name: </label>
+                    <input type="text" id="fname" name="fname"placeholder="Enter your first name here" maxlength="140" size="30">
                 </li>
                 <li>
-                    <label for="last_name">Last Name: </label>
-                    <input type="text" id="last_name" placeholder="Enter your last name here" maxlength="140" size="30">
+                    <label for="lname">Last Name: </label>
+                    <input type="text" id="lname" name="lname" placeholder="Enter your last name here" maxlength="140" size="30">
                 </li>
                 <li>
                     <label for="email">Email Address: </label>
-                    <input type="email" id="email" placeholder="Enter your email here (ex. joe@gmail.com)" size="45">
+                    <input type="email" id="email" name="email" placeholder="Enter your email here (ex. joe@gmail.com)" size="45">
                 </li>
                 <li>
                     <label for="phone">Phone Number: </label>
-                    <input type="tel" id="phone" placeholder="Enter your phone number here (ex. 555-555-5555)" size="45">
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number here (ex. 555-555-5555)" size="45">
                 </li> 
                 <li>
-                    <label for="message">Message: </label>
-                    <textarea rows="5" cols="33" type="text" id="message" placeholder="Enter your message here"></textarea>
+                    <label for="message">Message:</label>
+                    <textarea rows="5" cols="33" type="text" id="message" name="message" placeholder="Enter your message here"></textarea>
                 </li>
-                </ul>
-                <p>Ages</p>
-                <ul class ="flex-inner">
-                    <li>
-                        <input type="checkbox" id="eightteen_thirtyfive" name="eightteen_thirtyfive">
-                        <label for="eightteen_thirtyfive">18-35</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="thirtyfive_fifty" name="thirtyfive_fifty">
-                        <label for="thirtyfive_fifty">35-50</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="fifty_sixty" name="fifty_sixty">
-                        <label for="fifty_sixty">50-60</label>
-                    </li>
-                </ul>
-            <button type="submit">Submit</button>
+                <li>
+                    <p>Ages</p> 
+                    <ul class ="flex-inner">
+                    
+                        <li>
+                            <input type="checkbox" id="eightteen_thirtyfive" name="eightteen_thirtyfive">
+                            <label for="eightteen_thirtyfive">18-35</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="thirtyfive_fifty" name="thirtyfive_fifty">
+                            <label for="thirtyfive_fifty">35-50</label>
+                        </li>
+                        <li> 
+                            <input type="checkbox" id="fifty_sixty" name="fifty_sixty">
+                            <label for="fifty_sixty">50-60</label>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <button type="submit" name="button" id="button" onclick="testFunction()">Submit</button>
+                </li>
+            </ul>
         </form>
+        <script>
+            function testFunction(){
+                fetch("/api")
+                .then((Response) => Response["fname"].text())
+                .then((Response) => {
+                    console.log(Response)
+                })
+            }
+        </script>
         </body>
     </div>
 </div>
