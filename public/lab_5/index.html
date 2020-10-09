@@ -6,16 +6,11 @@
 </head>
 <div class="container">
     <div class="wrapper">
-        <body>
-            <h1 class="header">Benjamin Kelly Lab 4</h1>
-            <button onclick = "colorChange()">Activate</button>
-            <script type = "text/javascript">
-                function colorChange(){
-                    let color = documnet.getElementById('colorInputText').value;
-                    document.body.style.backgroundColor = color;
-                }
-            </script>
-            <form action="/api" method="post">
+        <body id="main">
+            <div class ="header">
+                <h1 class="newh">Benjamin Kelly Lab 4</h1>
+            </div>
+            <form >
             <ul class ="flex-outer">
                 <li>
                     <label for="fname">First Name: </label>
@@ -38,9 +33,8 @@
                     <textarea rows="5" cols="33" type="text" id="message" name="message" placeholder="Enter your message here"></textarea>
                 </li>
                 <li>
-                    <p>Ages</p> 
+                    <p class="checkbox-list-label">Ages</p> 
                     <ul class ="flex-inner">
-                    
                         <li>
                             <input type="checkbox" id="eightteen_thirtyfive" name="eightteen_thirtyfive">
                             <label for="eightteen_thirtyfive">18-35</label>
@@ -57,18 +51,39 @@
                 </li>
                 <li>
                     <button type="submit" name="button" id="button" onclick="testFunction()">Submit</button>
+                    <button type="button" name="newbutton" id="newbutton" onclick ="colorChange()">Activate</button>
                 </li>
             </ul>
+            <script>
+                function testFunction(){
+                    console.log(document.getElementById("fname"));
+                    console.log(document.getElementById("lname"));
+                    console.log(document.getElementById("email"));
+                    console.log(document.getElementById("phone"));
+                    console.log(document.getElementById("message"));
+                    }
+                function colorChange(){
+                    document.body.style.backgroundColor = "lightblue";
+                    const head = document.querySelector(".newh");
+                    head.innerHTML = "Lab 5 for Benjamin Kelly";
+                    const flexcenter = document.querySelector(".flex-outer");
+                    flexcenter.style.margin = "0px auto";
+                    flexcenter.style.marginRight = "100px"
+                    flexcenter.style.marginLeft = flexcenter.style.marginRight
+                    const fruit = document.querySelector(".checkbox-list-label")
+                    fruit.innerHTML = "Fruits";
+                    const fruit_lst = Array.from(document.querySelectorAll(".flex-inner label"))
+                    fruit_lst.forEach(fruit => {
+                        fruit_lst[0].innerHTML = "Oranges";
+                        fruit_lst[1].innerHTML = "Grapes";
+                        fruit_lst[2].innerHTML = "Pineapples";
+                    });
+                }
+                
+
+                
+            </script>
         </form>
-        <script>
-            function testFunction(){
-                fetch("/api")
-                .then((Response) => Response["fname"].text())
-                .then((Response) => {
-                    console.log(Response)
-                })
-            }
-        </script>
         </body>
     </div>
 </div>
