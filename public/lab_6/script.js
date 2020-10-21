@@ -1,7 +1,7 @@
 // You may wish to find an effective randomizer function on MDN.
 
 function randomer(max){
-    return Math.floor(Math.random() * Math.floor(max));
+    return Math.floor(Math.random() * max);
 }
 
 function range(int) {
@@ -41,11 +41,11 @@ function range(int) {
       //
         const newArr = range(10);
         const newArr2 = newArr.map(() => {
-          const number = randomer(255);
+          const number = randomer(50);
           return fromServer[number];
         });
       //
-      const reverseList = newArr2.sort((a,b) => sortByKey(a, b, "name"));
+      const reverseList = newArr2.sort((a,b) => sortByKey(b, a, "name"));
       const ul = document.createElement('ul');
       ul.className = "flex-inner";
       $('form').prepend(ul);
