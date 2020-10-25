@@ -12,12 +12,11 @@ document.body.addEventListener('submit', async (e) => {
             console.log(selected_val)
             console.log(sometxt)
             if (selected_val == 1){
-                lelem.className = 'right';
+                lelem.className = 'elem';
                 $('div .right').append(lelem);
                 $(lelem).append(`<h1>${sometxt}</h1>`)
             }
             else if (selected_val == 0){
-                lelem.className = 'left';
                 $('div .left').append(lelem);
                 $(lelem).append(`<h1>${sometxt}</h1>`)
             }
