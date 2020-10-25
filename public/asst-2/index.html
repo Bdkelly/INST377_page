@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Benjamin Kelly Lab 6</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+      <div class="header">
+          <h1>INST 377 - Assignment 2</h1>
+      </div>
+      <div class="top">
+          <form>
+              <ul class="flex-outer">
+                <li>
+                    <label for="super">Input something that you like or do not: </label>
+                    <input type="text" id="super" name="super"placeholder="Enter Here" maxlength="140" size="30">
+                </li>
+              </ul>
+              <ul class="flex-inner">
+                  <li>
+                    <input type="radio" name="choice" value="1" id="dislike" >
+                    <label for="dislike">Something you Like</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="choice" value="0" id="dislike" >
+                    <label for="dislike">Something you Dislike</label>
+                  </li>
+            </ul>
+            <div class="top">
+                <button type="submit" name="button" id="button">Submit</button>
+                <button type="submit" name="button_cls" id="button_cls">Clear</button>
+            </div>
+        </form>
+      </div>
+      <div class="wrapper">
+          <div class="right">
+              <h1>Like</h1>
+          </div>
+          <div class="left">
+              <h1>Dislike</h1>
+          </div>
+      </div>
+      <script src="scripts.js"></script>
+  </body>
+</html>
