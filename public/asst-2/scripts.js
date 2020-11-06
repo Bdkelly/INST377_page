@@ -1,26 +1,41 @@
-document.body.addEventListener('submit', async (e) => {
-    e.preventDefault(); // this stops whatever the browser wanted to do itself.
-    const btn = document.querySelector('#button');
-    btn.onclick = function(){
-    const rbs = document.querySelectorAll('input[name="choice"]');
-    var sometxt = document.getElementById('super').value;
-    let selected_val;
-    const lelem = document.createElement('div');
-    for (const rb of rbs){
-        if(rb.checked){
-            selected_val = rb.value;
-            console.log(selected_val)
-            console.log(sometxt)
-            if (selected_val == 1){
-                lelem.className = 'elem';
-                $('div .right').append(lelem);
-                $(lelem).append(`<h1>${sometxt}</h1>`)
-            }
-            else if (selected_val == 0){
-                $('div .left').append(lelem);
-                $(lelem).append(`<h1>${sometxt}</h1>`)
-            }
-            break;
-        }
+const endpoint = "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
+
+const stores = [];
+
+fetch(endpoint)
+    .then(blob => blob.json())
+    .then(data => stores.push(...data))
+
+function finder(toMatch, stores){
+    return stores.filter(store => {
+        //Find matching store
+    const regex = new RegExp(toMatch,'gi');
+    return store.name.match(regex) || store.category.match(regex)
+    });
+}
+
+function displayOut(){
+    const matchSame = finder(this.value,stores);
+    let html = matchSame.map(store => {
+        return `<li class="out">
+                    <h1>${store.name}</h1>
+                    <p>${store.address_line_1}, ${store.city}, ${store.state}, ${store.zip}</p>
+                    <p>${store.category}</p>
+                </li>`
+    }).join('');
+    suggest.innerHTML = html;
+    if(this.value === ""){
+        let html = ""
+        suggest.innerHTML = html;
     }
-    }});
+}
+
+const searchval = document.querySelector(".search");
+const suggest = document.querySelector(".start");
+
+searchval.addEventListener('change',displayOut);
+searchval.addEventListener('keyup',displayOut);
+
+
+
+
