@@ -14,5 +14,24 @@ function finder(toMatch, stores){
     });
 }
 
+function displayOut(){
+    const matchSame = finder(this.value,stores);
+    const html = matchSame.map(store => {
+        return `<li class="out">
+                    <h1>${store.name}</h1>
+                    <p>${store.address_line_1},${store.city},${store.state},${store.zip}</p>
+                    <p>${store.category}</p>
+                </li>`
+    }).join('');
+    suggest.innerHTML = html;
+
+
+}
+
+const searchval = document.querySelector(".search");
+const suggest = document.querySelector(".start");
+
+searchval.addEventListener('change',displayOut);
+searchval.addEventListener('keyup',displayOut);
 
 
