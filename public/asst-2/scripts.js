@@ -24,15 +24,22 @@ function displayOut(){
                 </li>`
     }).join('');
     suggest.innerHTML = html;
+    console.log(matchSame)
     if(this.value === ""){
-        let html = ""
-        suggest.innerHTML = html;
+        let nase = `<li class="out"><h1>Restaurant App</h1></li>`
+        suggest.innerHTML = nase;
     }
-}
+    if(matchSame[0] === undefined){
+        let nase = `<li class="out"><h1>No Results</h1></li>`
+        suggest.innerHTML = nase;
+    }
+    }
 
 const searchval = document.querySelector(".search");
 const suggest = document.querySelector(".start");
 
+let html = `<li class="out"><h1>Restaurant App</h1></li>`
+suggest.innerHTML = html;
 searchval.addEventListener('change',displayOut);
 searchval.addEventListener('keyup',displayOut);
 
