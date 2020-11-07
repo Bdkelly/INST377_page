@@ -24,7 +24,6 @@ function displayOut(){
                 </li>`
     }).join('');
     suggest.innerHTML = html;
-    console.log(matchSame)
     if(this.value === ""){
         let newpage = `<li class="out"><h1>Restaurant App</h1></li>`
         suggest.innerHTML = newpage;
