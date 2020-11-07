@@ -26,14 +26,14 @@ function displayOut(){
     suggest.innerHTML = html;
     console.log(matchSame)
     if(this.value === ""){
-        let nase = `<li class="out"><h1>Restaurant App</h1></li>`
-        suggest.innerHTML = nase;
+        let newpage = `<li class="out"><h1>Restaurant App</h1></li>`
+        suggest.innerHTML = newpage;
     }
     if(matchSame[0] === undefined){
         let nase = `<li class="out"><h1>No Results</h1></li>`
         suggest.innerHTML = nase;
     }
-    }
+}
 
 const searchval = document.querySelector(".search");
 const suggest = document.querySelector(".start");
