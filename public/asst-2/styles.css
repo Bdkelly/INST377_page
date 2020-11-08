@@ -7,7 +7,9 @@ body {
     font-family: 'Noto Sans JP';
     src: url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400");
   }
-  
+*{
+  font-family: 'Noto Sans JP';
+}
   .wrapper {
     display: flex;
     flex-direction: row;
