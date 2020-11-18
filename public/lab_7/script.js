@@ -83,6 +83,6 @@ document.body.addEventListener('submit', async (e) => {
     .then((fromServer) => fromServer.json())
     .then((jsonFromServer) => runThisWithResultsFromServer(jsonFromServer))
     .catch((err) => {
-      console.log(err);
+    console.log(err);
     });
 });
