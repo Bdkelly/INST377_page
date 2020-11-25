@@ -1,0 +1,69 @@
+/*CSS*/
+body {
+    background: #3895a8;
+  }
+
+  @font-face{
+    font-family: 'Noto Sans JP';
+    src: url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400");
+  }
+*{
+  font-family: 'Noto Sans JP';
+}
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width:100%;
+    height:100%;
+  }
+  .header {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .flex-outer {
+    padding: 0px 16px;
+    max-width: 800px;
+    margin-left: 0 auto;
+  }
+  .flex-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .top{
+      display: flex;
+      justify-content: left;
+      padding: 10px;
+  }
+  .out{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: left;
+    align-items: left;
+    padding-left: 2%;
+    background-image: linear-gradient(180deg, green, rgb(171, 235, 171));
+    margin: 10px;
+  }
+  .start{
+    background-color:#3895a8;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+form{
+  padding: 10px;
+}
