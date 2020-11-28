@@ -25,55 +25,6 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
 });
 //
-const dbSettings = {
-  filename:'./tmp/database.db',
-  driver: sqlite3.Database,
-};
-
-async function foodDataFetcher() {
-  const url = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
-  const data = await fetch(url);
-  return data.json()
-}
-//
-async function intodb(entry,db){
-  try{
-    const store_name = entry.name;
-    const category = entry.category;
-    await db.exec(`INSERT INTO FoodDB(restaurant_name, category) VALUES ("$(store_name)","$(category)")`);
-    console.log(`${store_name} and ${category} inserted`);
-  }
-  catch(e) {
-		console.log('Error on insertion');
-		console.log(e);
-		}
-}
-///
-async function query(db){
-  const result = await db.all(`SELECT category, COUNT(restaurant_name) from FoodDB GROUP BY category`);
-  return result;
-}
-////
-async function dataBaseStart(dbSettings){
-  try {
-    const db = await open(dbSettings);
-    await db.exec(`CREATE TABLE IF NOT EXISTS FoodDB(
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      restaurant_name TEXT,
-      category TEXT)
-      `);
-
-    const data = await foodDataFetcher();
-
-    data.forEach((entry) => { intodb(entry, db); });
-
-    console.log('Database connected.');
-  } catch (e) {
-    console.log('Error loading Database.');
-    console.log(e);
-  }
-}
-//
 app.route('/api')
   .get((req, res) => {
     console.log('GET request detected');
@@ -87,9 +38,59 @@ app.route('/api')
     res.json(json);
   });
 //
+const dbSettings = {
+  filename:'./tmp/database.db',
+  driver: sqlite3.Database,
+};
+//
+async function foodDataFetcher() {
+  const url = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
+  const data = await fetch(url);
+  const json = data.json()
+  return json
+}
+//
+async function intodb(entry,db){
+  try{
+    const store_name = entry.name;
+    const store_category = entry.category;
 
+    await db.exec(`INSERT INTO FoodDB (restaurant_name, category) VALUES ("$(store_name)","$(store_category)")`);
+
+
+    //console.log(`${store_name} and ${category} inserted`);
+  } catch(e) {
+		console.log('Error on insertion');
+		console.log(e);
+		}
+}
+//
+async function query(db){
+
+  const result = await db.all(`SELECT category AS label, COUNT(restaurant_name) AS y FROM FoodDB GROUP BY category`);
+  return result;
+}
+//
+async function dataBaseStart(dbSettings){
+  try {
+    const db = await open(dbSettings);
+    await db.exec(`CREATE TABLE IF NOT EXISTS FoodDB(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      restaurant_name TEXT,
+      category TEXT)
+      `);
+
+    const data = await foodDataFetcher();
+    data.forEach((entry) => { intodb(entry, db); });
+    console.log('Database connected.');
+  } catch (e) {
+    console.log('Error loading Database.');
+    console.log(e);
+  }
+}
+//
 dataBaseStart(dbSettings);
-
+//
 app.route('/sql')
   .get((req, res) => {
     console.log('GET request detected');
