@@ -52,12 +52,9 @@ async function foodDataFetcher() {
 //
 async function intodb(entry,db){
   try{
-    const store_name = entry.name;
-    const store_category = entry.category;
-
-    await db.exec(`INSERT INTO FoodDB (restaurant_name, category) VALUES ("$(store_name)","$(store_category)")`);
-
-
+    const New_name = entry.name;
+    const New_category = entry.category;
+    await db.exec(`INSERT INTO FoodDB (store_name, store_category) VALUES ("${New_name}","${New_category}")`);
     //console.log(`${store_name} and ${category} inserted`);
   } catch(e) {
 		console.log('Error on insertion');
@@ -66,18 +63,19 @@ async function intodb(entry,db){
 }
 //
 async function query(db){
-
-  const result = await db.all(`SELECT category AS label, COUNT(restaurant_name) AS y FROM FoodDB GROUP BY category`);
+  const result = await db.all(`SELECT store_category AS label, COUNT(store_name) AS y FROM FoodDB GROUP BY store_category`);
   return result;
 }
 //
 async function dataBaseStart(dbSettings){
   try {
     const db = await open(dbSettings);
-    await db.exec(`CREATE TABLE IF NOT EXISTS FoodDB(
+    await db.exec
+     (`
+      CREATE TABLE IF NOT EXISTS FoodDB(
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      restaurant_name TEXT,
-      category TEXT)
+      store_name TEXT,
+      store_category TEXT)
       `);
 
     const data = await foodDataFetcher();
@@ -94,11 +92,10 @@ dataBaseStart(dbSettings);
 app.route('/sql')
   .get((req, res) => {
     console.log('GET request detected');
-    res.send(`Lab 5 for ${process.env.NAME}`);
   })
   .post(async (req, res) => {
     console.log('POST request detected');
-    console.log('Form data in res.body', req.body);
+    //console.log('Form data in res.body', req.body);
     const db = await open(dbSettings); //Creating DB
     const results = await query(db);
     res.json(results)
